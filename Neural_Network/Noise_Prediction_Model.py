@@ -13,11 +13,12 @@ from itertools import product
 import pandas as pd
 import io
 
-# # Change model and plots locations as needed
+# # Change csv, model, and plots locations as needed
+#       -> Ctrl + F to find file_path, plt.savefig, MODEL_PATH
 
 #organize and prepare data
 distro_mode = "Normal(mean=0,stdev=0.1)"
-file_path = "Neural_Network/" + distro_mode + ".csv"
+file_path = "./ACL_Metronome/Neural_Network/" + distro_mode + ".csv"
 df = pd.read_csv(file_path)
 
 csv_values= df.values
@@ -89,7 +90,7 @@ optimizer = optim.AdamW(model.parameters(), lr=0.000004, weight_decay=0.04)
 train_dataset = TensorDataset(xz_pose_train_scaled_tensor, w_x_train_tensor)
 train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True)
 
-epochs = 50 #30
+epochs = 30
 batch_size=64
 
 epoch_count= []
